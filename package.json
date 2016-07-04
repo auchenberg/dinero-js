@@ -1,0 +1,18 @@
+{
+  "name": "dinero",
+  "version": "1.0.0",
+  "description": "API client for Dinero Regnskab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "es6-promise": "^2.0.1",
+    "request": "^2.51.0"
+  },
+  "devDependencies": {
+    "moment": "^2.14.1"
+  }
+}
