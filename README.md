@@ -3,7 +3,7 @@ API client for [Dinero Regnskab](http://dinero.dk)
 
 Requires `client_id` + `client_secret` from [api.dinero.dk](http://api.dinero.dk)
 
-#### Example
+#### Example: Upload file and create purchase voucher
 
 ```javascript
 var fs = require('fs')
@@ -16,7 +16,7 @@ var client = new Dinero({
 })
 
 var apiKey = '<your organiztion API key>'
-var orgId = '<your organization id>
+var orgId = '<your organization id>'
 
 client.auth(apiKey, apiKey).then(function(auth) {
   console.log('.. authenticated!')
