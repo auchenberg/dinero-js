@@ -1,6 +1,6 @@
 {
   "name": "dinero",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "API client for Dinero Regnskab",
   "main": "index.js",
   "scripts": {
