@@ -59,7 +59,7 @@ Dinero.prototype = {
       }
 
       request(options, function (err, response) {
-        if(err) {
+        if (err || response.statusCode !== 200) {
           reject(err)
         } else {
           this.accessToken = response.body.access_token
@@ -90,7 +90,7 @@ Dinero.prototype = {
       }
 
       return request(req, function (err, response) {
-        if (err) {
+        if (err || response.statusCode !== 200) {
           reject(err)
         } else {
           resolve(response.body)
