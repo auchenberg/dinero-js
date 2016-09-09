@@ -12,13 +12,12 @@ var actions = {
 
 var endpoints = [
   'post /:id/files',
-  'post /:id/vouchers/purchase',
+  'post /:id/vouchers/purchase'
 ]
 
 function Dinero (options) {
-
-  this.clientId = options.clientId,
-  this.clientSecret = options.clientSecret,
+  this.clientId = options.clientId
+  this.clientSecret = options.clientSecret
   this.accessToken = ''
   this.authEndpoint = 'https://authz.dinero.dk/dineroapi/oauth/token'
 
@@ -39,22 +38,20 @@ function Dinero (options) {
 
 Dinero.prototype = {
 
-  auth: function(username, password) {
-
+  auth: function (username, password) {
     return new Promise(function (resolve, reject) {
-
       var options = {
         url: this.authEndpoint,
         method: 'POST',
         headers: {
-          'Authorization': 'Basic ' + new Buffer(this.clientId + ':' + this.clientSecret).toString('base64'),
+          'Authorization': 'Basic ' + new Buffer(this.clientId + ':' + this.clientSecret).toString('base64')
         },
         form: {
-            'grant_type' : 'password',
-            'scope': 'read write',
-            'username': username,
-            'password': password,
-        },         
+          'grant_type': 'password',
+          'scope': 'read write',
+          'username': username,
+          'password': password
+        },
         json: true
       }
 
@@ -70,7 +67,6 @@ Dinero.prototype = {
         }
       }.bind(this))
     }.bind(this))
-
   },
 
   request: function (endpoint, method, data, options) {
@@ -79,11 +75,11 @@ Dinero.prototype = {
         url: this.settings.url + endpoint,
         method: method.toUpperCase(),
         headers: this.settings.headers,
-        json: data,
+        json: data
       }
-         
+
       if (typeof options === 'object') {
-        if(options.multipart) { // Used for file uploading
+        if (options.multipart) { // Used for file uploading
           req.json = true
           req.formData = data
         }
@@ -96,9 +92,7 @@ Dinero.prototype = {
           resolve(response.body)
         }
       })
-
     }.bind(this))
-
   }
 
 }
@@ -107,7 +101,7 @@ function initialize () {
   function createNestedObject (base, names, value) {
     var lastName = arguments.length === 3 ? names.pop() : false
     for (var i = 0; i < names.length; i++) {
-      if(names[i] !== '') {     
+      if (names[i] !== '') {
         base = base[names[i]] = base[names[i]] || {}
       }
     }
